@@ -1,19 +1,18 @@
 let student_list = [['K14.1', 'Trần Việt Trung', '20/01/1992', 'Nam', 'trungtv@gmail.com', 'K14', 'Ngân hàng', 'NHTMD', '0383147758'],
-    ['K14.2', 'Trần Van Thanh', '10/03/1992', 'Nam', 'thanhtv@gmail.com', 'K14', 'Ngân hàng', 'NHTMD', '0382347758'],
-    ['K14.3', 'Nguyen Thi Hong Thom', '22/10/1993', 'Nu', 'thomnth@gmail.com', 'K14', 'Ngân hàng', 'NHTMD', '059716970'],
-    ['K14.4', 'Hoang Hoa Tham', '22/10/1993', 'Nam', 'thainth@gmail.com', 'K15', 'Ngân hàng', 'NHTMA', '059242342'],
-    ['K14.5', 'Le Van Vui', '25/03/1994', 'Nam', 'vuilv@gmail.com', 'K16', 'Tai Chinh', 'TCA', '05987916521'],
-    ['K14.6', 'Tran Ngoc Trang', '22/12/1994', 'Nam', 'trangtn@gmail.com', 'K15', 'Ngân hàng', 'NHTMB', '059897744']]
+    ['K14.2', 'Trần Văn Thanh', '10/03/1992', 'Nam', 'thanhtv@gmail.com', 'K14', 'Ngân hàng', 'NHTMD', '0382347758'],
+    ['K14.3', 'Nguyễn Thị Hồng Thơm', '22/10/1993', 'Nu', 'thomnth@gmail.com', 'K14', 'Ngân hàng', 'NHTMD', '059716970']]
 
 
-// let editname
-// let editbirth
-// let editemail
-// let edityear
-// let editdp
-// let editclassstudent
-// let editgender
-// let editPhone
+let indexExchange
+let editid
+let editname
+let editbirth
+let editemail
+let edityear
+let editdp
+let editclassstudent
+let editgender
+let editphone
 
 localStorage.setItem('students', 'Nguyen van a')
 
@@ -32,14 +31,13 @@ function display() {
             + "<td>" + student_list[i][8] + "</td>" + "<td>" + "<button id='edit' value='edit' onclick='edit(" + i + ")'>" + "edit " + "</button>" + "</td>"
             + "<td>" + "<button id='delete' value='delete' onclick='deleteProduct(" + i + ")'>" + "delete" + "</button>" + "</td>"
         table += "</tr>"
-
     }
     table += "</table>"
     document.getElementById('student').innerHTML = table
 }
 
 function add() {
-    let index = document.getElementById('indexchange').value
+
     let code = document.getElementById('id').value
     let fullname = document.getElementById('fullname').value
     let birth = document.getElementById('birth').value
@@ -61,29 +59,20 @@ function add() {
 
     } else {
         document.getElementById('error').innerHTML = ''
-        checkTrung()
         let list = [code, fullname, birth, gender, email, year, dp, classStudent, phone]
-        if (index !== '') {
-            student_list[index] = list
-            display()
-            return
+        if (checkTrung()) {
+            alert('ID đã tồn tại')
+        } else {
+            student_list.push(list)
         }
-        student_list.push(list)
-        document.getElementById('id').value = ""
-        document.getElementById('fullname').value = ""
-        document.getElementById('birth').value = ""
-        document.getElementById('email').value = ""
-        document.getElementById('year').value = ""
-        document.getElementById('dp').value = ""
-        document.getElementById('class').value = ""
-        document.getElementById('phone').value = ""
+        reset()
         display()
     }
 }
 
 
 function deleteProduct(index) {
-    // document.getElementById('test').style.display = 'block'
+    confirm('Bạn chắc muốn xóa bản ghi này chứ')
     student_list.splice(index, 1)
     display()
 }
@@ -91,9 +80,9 @@ function deleteProduct(index) {
 
 function edit(index) {
     let edit = student_list[index]
+    indexExchange = index
     console.log(edit)
     document.getElementById('indexchange').value = index
-
     document.getElementById('id').value = edit[0]
     document.getElementById('fullname').value = edit[1]
     document.getElementById('birth').value = edit[2]
@@ -104,20 +93,61 @@ function edit(index) {
     document.getElementById('male').value = edit[3]
     document.getElementById('female').value = edit[3]
     document.getElementById('phone').value = edit[8]
+    editid = edit[0]
+    editname = edit[1]
+    editbirth = edit[2]
+    editgender = edit[3]
+    editemail = edit[4]
+    edityear = edit[5]
+    editdp = edit[6]
+    editclassstudent = edit[7]
+    editphone = edit[8]
+
     display()
+}
+
+function editStudent() {
+    editid = document.getElementById('id').value
+    editname = document.getElementById('fullname').value
+    editbirth = document.getElementById('birth').value
+    editgender = document.getElementById('male').value
+    editgender = document.getElementById('female').value
+    editemail = document.getElementById('email').value
+    edityear = document.getElementById('year').value
+    editdp = document.getElementById('dp').value
+    editclassstudent = document.getElementById('class').value
+    editphone = document.getElementById('phone').value
+    student_list[indexExchange][0] = editid
+    student_list[indexExchange][1] = editname
+    student_list[indexExchange][2] = editbirth
+    student_list[indexExchange][3] = editgender
+    student_list[indexExchange][4] = editemail
+    student_list[indexExchange][5] = edityear
+    student_list[indexExchange][6] = editdp
+    student_list[indexExchange][7] = editclassstudent
+    student_list[indexExchange][8] = editphone
+    confirm('Bạn có chắc muốn sửa bản ghi này chứ')
+    display()
+    reset()
 }
 
 function checkTrung() {
     for (let i = 0; i < student_list.length; i++) {
         let inputCode = document.getElementById('id').value
         if (inputCode === student_list[i][0]) {
-            alert('Không được trùng mã sinh viên')
+            return true
         }
     }
 }
 
-function view(){
-
+function reset() {
+    document.getElementById('id').value = ""
+    document.getElementById('fullname').value = ""
+    document.getElementById('birth').value = ""
+    document.getElementById('email').value = ""
+    document.getElementById('year').value = ""
+    document.getElementById('dp').value = ""
+    document.getElementById('class').value = ""
+    document.getElementById('phone').value = ""
 }
-
 

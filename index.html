@@ -4,17 +4,21 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="student.css">
-
+    <style>
+        body {
+            background-image: url("hinhnen1.jpg");
+        }
+    </style>
 
 </head>
 <body onload="display()">
 <div id="main1"><label><strong>QUẢN LÝ THÔNG TIN SINH VIÊN</strong></label></div>
 <br><br>
 
-<div id="test" class="form-student">
-    <table>
+<div class="form-student">
+    <table id="table1">
         <tr>
-            <td colspan="2"><h3>Thông tin sinh viên</h3><span id="error"></span></td>
+            <td colspan="2" style="font-size: 20px"><h3>Thông tin sinh viên</h3><span id="error"></span></td>
 
         </tr>
         <tr>
@@ -69,7 +73,11 @@
         </tr>
         <tr>
             <!--            <td><label><input id="editindex" type="button" value="Edit" onclick="editProduct()"></label></td>-->
-            <td style="text-align: center" colspan="2"><label><button id="add"  value="Add" onclick="add()">ADD</button></label>
+            <td style="text-align: center" colspan="2" id="button"><label>
+                <button id="add" value="Add" onclick="add()">ADD</button>
+                <button id="editStudent()" onclick="editStudent()">EDIT</button>
+<!--                <button id="reset" onclick="reset()">RESET</button>-->
+            </label>
             </td>
         </tr>
 
@@ -81,7 +89,7 @@
 <br>
 <div>
     <div id="title">
-        <label style="text-align: center; left: 400px"><strong><h3>LIST STUDENT</h3></strong></label>
+        <label style="text-align: center; left: 400px; font-size: 20px"><strong>LIST STUDENT</strong></label>
     </div>
 
     <div class="student" id="student"></div>
