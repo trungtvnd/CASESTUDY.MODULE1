@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="student.css">
+
+
+</head>
+<body onload="display()">
+<div id="main1"><label><strong>QUẢN LÝ THÔNG TIN SINH VIÊN</strong></label></div>
+<br><br>
+
+<div id="test" class="form-student">
+    <table>
+        <tr>
+            <td colspan="2"><h3>Thông tin sinh viên</h3><span id="error"></span></td>
+
+        </tr>
+        <tr>
+            <td><label><input hidden type="number" id="indexchange" name="indexchange" value=""></label></td>
+        </tr>
+        <tr>
+            <td> Mã sinh viên:</td>
+            <td><label><input type="text" class="input" id="id" placeholder="K14.3"></label></td>
+
+        </tr>
+        <tr>
+            <td> Họ và Tên:</td>
+            <td><label><input type="text" class="input" id="fullname" placeholder="Nguyễn Văn A"></label></td>
+        </tr>
+        <tr>
+            <td> Date of birth:</td>
+            <td><label><input type="text" class="input" id="birth" placeholder="20/01/1992"></label></td>
+        </tr>
+        <tr>
+            <td> Gender :</td>
+            <td><label for="male"><input type="radio" name="gender" id="male" value="Male"></label>Male<label
+                    for="female"><input type="radio" name="gender" id="female" value="Female"></label>Female
+            </td>
+        </tr>
+        <tr>
+            <td> Email:</td>
+            <td><label><input type="text" id="email" class="input" placeholder="abc@gmail.com"></label></td>
+        </tr>
+        <tr>
+            <td> Academic Year:</td>
+            <td><label><select name="" id="year">
+                <option value="K14">K14</option>
+                <option value="K15">K15</option>
+                <option value="K16">K16</option>
+                <option value="K17">K17</option>
+                <option value="K18">K18</option>
+                <option value="K19">K19</option>
+            </select></label></td>
+
+        </tr>
+        <tr>
+            <td> Department (Khoa):</td>
+            <td><label><input type="text" class="input" id="dp" placeholder="Ngân hàng"></label></td>
+        </tr>
+        <tr>
+            <td> Class Student:</td>
+            <td><label><input type="text" id="class" class="input" placeholder="TCA"></label></td>
+        </tr>
+        <tr>
+            <td> Phone Number:</td>
+            <td><label><input type="text" id="phone" class="input" placeholder="0987653223"></label></td>
+        </tr>
+        <tr>
+            <!--            <td><label><input id="editindex" type="button" value="Edit" onclick="editProduct()"></label></td>-->
+            <td><label><input id="add" type="button" value="Add" onclick="add()"></label>
+            </td>
+        </tr>
+
+    </table>
+
+</div>
+<br><br>
+
+<br>
+<div>
+    <div id="title">
+        <label style="text-align: center; left: 400px"><strong><h3>LIST STUDENT</h3></strong></label>
+    </div>
+
+    <div class="student" id="student"></div>
+</div>
+
+
+<script>
+</script>
+<script src="user.js"></script>
+<script src="student.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

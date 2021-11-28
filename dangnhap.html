@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            background-image: url("dangnhap.jpg");
+        }
+    </style>
+
+
+</head>
+<body>
+<div>
+    <label style="text-align: center ; position: absolute; top: 100px; left: 620px; color: #f6f8f8"><h1>Đăng nhập</h1>
+    </label>
+
+</div>
+<div>
+
+    <form id="login" action="index.html" method="get" style="position: absolute; left: 550px; top: 200px">
+        <table>
+
+
+            <tr>
+                <td style="color: white"><label>User: </label></td>
+                <td><label for="account"><input class="account" id="account" type="text" placeholder="Tên đăng nhập"></label></td>
+            </tr>
+            <tr>
+                <td style="color: white"><label>Password: </label></td>
+                <td><label for="password"><input id="password" type="password" placeholder="Mật khẩu"></label></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center">
+                    <button type="submit" onclick="checkAccount()">Login</button>
+                </td>
+            </tr>
+        </table>
+        <!--        Account: <label for="account"><input id="account" type="text"></label>-->
+        <!--        Password: <label for="password"><input id="password" type="password"></label>-->
+
+    </form>
+</div>
+
+
+</body>
+<script src="user.js"></script>
+<script src="main.js"></script>
+<script src="student.js"></script>
+</html>
