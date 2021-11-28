@@ -100,10 +100,16 @@ button{
 .student td{
     padding: 6px;
 }
-.student table{
+.student table tr td{
     /*border: 1px solid;*/
     border-collapse: collapse;
     width: 1300px;
+}
+.student button{
+    width: 60px;
+    border-radius: 5px;
+    background-color: green;
+    color: white;
 }
 #fullname1{
     width: 15%;
@@ -112,7 +118,7 @@ button{
 
 #title {
     background-color: #eee6d8;
-    width: 1300px;
+    width: 1655px;
     padding: 7px;
     border-radius: 10px;
 
