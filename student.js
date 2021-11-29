@@ -37,7 +37,6 @@ function display() {
 }
 
 function add() {
-
     let code = document.getElementById('id').value
     let fullname = document.getElementById('fullname').value
     let birth = document.getElementById('birth').value
